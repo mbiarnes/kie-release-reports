@@ -1,0 +1,168 @@
+
+------------------------------------------------------------------------
+           Engineering to Productization Handoff Report
+------------------------------------------------------------------------
+Report Date: 2019-10-04-16:15
+Code Cutoff Date: 2019-10-04
+Target Product Build: RHPAM-7.6.0.CR1
+Prod Tag: sync-7.28.x-2019.10.04
+based on branch: community newScriptsAndPipelines
+
+
+Product Pages: 
+https://pp.engineering.redhat.com/pp/product/jbossbrms/overview
+https://pp.engineering.redhat.com/pp/product/jbossbpms/overview
+
+Overall community build info:
+https://github.com/droolsjbpm/droolsjbpm-build-bootstrap/blob/master/README.md
+
+------------------------------------------------------------------------
+                          Build Tools                               
+------------------------------------------------------------------------
+JAVA:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+java version "1.8.0_201"
+Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
+Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
+
+MAVEN:
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Apache Maven 3.5.2 (138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T09:58:13+02:00)
+Maven home: /opt/tools/mavenVer
+Java version: 1.8.0_201, vendor: Oracle Corporation
+Java home: /opt/tools/jdk1.8.0_201/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-514.el7.x86_64", arch: "amd64", family: "unix"
+------------------------------------------------------------------------
+                        Sources to build                         
+------------------------------------------------------------------------
+All tags sync-7.28.x-2019.10.04 are on Gerrit
+
+------------------------------------------------------------------------
+                          component  versions
+------------------------------------------------------------------------
+
+kie=7.28.0.20191004-prod
+
+------------------------------------------------------------------------
+                          Build Command
+------------------------------------------------------------------------
+
+mvn -B -e -U clean install -Dfull -Dproductized -Drelease -Dmaven.test.failure.ignore=true -Dgwt.memory.settings="-Xmx10g"
+
+------------------------------------------------------------------------
+                       Environment variables
+------------------------------------------------------------------------ 
+
+MAVEN_OPTS:
+-Xms1g -Xmx3g
+
+-----------------------------------------------------------------------  
+                     Component owners contacts                           
+------------------------------------------------------------------------
+lienzo-core                     romartin@redhat.com
+lienzo-tests                    romartin@redhat.com
+droolsjbpm-build-bootstrap      gdesmet@redhat.com,mbiarnes@redhat.com
+kie-soup                        mswiders@redhat.com
+droolsjbpm-knowledge            mfusco@redhat.com,etirelli@redhat.com
+drools                          mfusco@redhat.com,etirelli@redhat.com
+optaplanner                     gdesmet@redhat.com
+jbpm                            kverlaen@redhat.com
+kie-jpmml-integration           mmortari@redhat.com
+droolsjbpm-integration          mfusco@redhat.com,etirelli@redhat.com
+openshift-drools-hacep          mdessi@redhat.com
+droolsjbpm-tools                kverlaen@redhat.com
+kie-uberfire-extensions         cnicolai@redhat.com
+kie-wb-playground               manstis@redhat.com
+kie-wb-common                   manstis@redhat.com
+drools-wb                       manstis@redhat.com
+optaplanner-wb                  gdesmet@redhat.com
+jbpm-designer                   tsurdilo@redhat.com
+jbpm-work-items                 manstis@redhat.com
+jbpm-wb                         cnicolai@redhat.com
+kie-docs                        sterobin@redhat.com
+optaweb-employee-rostering      gdesmet@redhat.com
+optaweb-vehicle-routing         gdesmet@redhat.com
+kie-wb-distributions            manstis@redhat.com
+
+------------------------------------------------------------------------
+                              Notes                                     
+------------------------------------------------------------------------
+NOTE* before each release the .m2/repository/org/drools ,kie, jbpm, optaplanner, optaweb, dashbuilder  and uberfire repositories are removed
+      repositories for community release are build with: mvn clean install -Dfull
+      repositories for production release are build with: mvn clean install -Dfull -Dproductized 
+      to see what we do normally in a release and what we have to pay attention to please read the README.md file on https://github.com/droolsjbpm/droolsjbpm-build-bootstrap
+
+The last commits of the tag are:
+
+
+
+
+
+
+Git arg. line=log -11 --pretty=oneline
+
+===============================================================================
+Repository: lienzo-core
+===============================================================================
+0c78b7e8bc547737468168261c2e47fb6ff97680 this + is
+b71b0b8be4d82e8494ce4bb4229ffb43d9532833 upgraded to next SNAPSHOT version
+e62e8fe93a0ac6c0e99669c91fd6f3de0d9a6dbb upgraded to next SNAPSHOT version
+a80d5f8c771fc6d1e1a0eee0c9227a3850d19647 upgraded to next SNAPSHOT version
+249aabf82afab8640cb5669f6454b9075c786ae2 bumped up version to 7.25.0-SNAPSHOT
+18be8f04d15e883f8305e4009e3f14c469964bc8 upgrade to next SNAPSHOT
+d3d0f45bed17835a6638764b813384c4678ef8f0 upgraded to next SNAPSHOT
+85ba1c0a5cf18b9242c3afd7f2c3ceb6bb26f861 AF-1936: Unexpected error when deleting project with Business Process (#95)
+7243df0cd4f237f345ba33ac19c1e928d327dbba upgraded to 7.22.0-SNAPSHOT
+04dfbc473d4898bfff3491d04cfcb9eb68b94be1 JBPM-6454 Stunner - rethink text wrapping and fonts for nodes (#94)
+a75771267d1bd4d49bbeff2214581e3dd6a3c867 Remove eclipse, gradle and travis settings (#91)
+
+===============================================================================
+Repository: lienzo-tests
+===============================================================================
+994641c6cfd535a406a136331d273755099e6897 this + is
+394056f0dd069945c1ec1d1721180bb46880edce added lock files for testing
+c2d34b0932fd29dee33b36836c07db0ef3e32658 upgraded to next SNAPSHOT version
+f550a09ed27b4d09c599ebdd206447e772219ebb BXMSPROD-506: Lienzo tests uses project.version for lienzo-core dependencies (#76)
+a93f3a0a5e88e991d91026cbca19343ea8e0acce upgraded to next SNAPSHOT version
+c5d2559c21b6a3944947031627a0dae65407fdf2 upgraded to next SNAPSHOT version
+51aaf81b040cab5507f2076a1858b730ef02c4d7 bumped up version to 7.25.0-SNAPSHOT
+408c4738c913ed5e777a6fadba9edcea69bbb90c upgrade to next SNAPSHOT
+db8d469554c3aa5425aefde1aa3c899cebb1b090 upgraded to next SNAPSHOT
+235482e4cd7e0c04af03af1992a9480125e9b853 AF-1936: Unexpected error when deleting project with Business Process (#75)
+4edc3bb9fd54c43bab7b8c123a6a241621a7a189 upgraded to 7.22.0-SNAPSHOT
+
+===============================================================================
+Repository: droolsjbpm-build-bootstrap
+===============================================================================
+fc947b675f82551012343bf791e04e9c990a3eb1 this + is
+bfde11a361987ae62aa973b38c2b737cec9b305c added script
+9e206f4a0d9defb1687ae95af1c663c6c4bacf8d prepared for dry-run
+2dd1c55d41081c5788c0098868ad1cbc9946e033 removed deploy-dir in prod build
+944629c452a386ce0841a2e05cb5c00ce814cc7b adapted kieVersion variable for pipelines
+5996ee30733a5a23e0252f05a51cbdb96380292a clone-others - not anymore droolsjbpm-build-bootstrap
+07edb2785779719d902041265d762cf498ca5905 changed script since uberfire has not any more its own version
+9ce662f81884119cd3dc8c0a3a584511ab9128b9 replaced kiegroup by variable $organization
+552b3c4e2b3a6c3c0b93976d3302bb9ad12fef02 new scripts
+f9886a9e2e7432c63792294b85b00a7c552ed3ad BXMSPROD-477 delete npm/yarn package lock files (#1072)
+6d87c7912458ba293dffb6eb9e927a698d516c2b BAQE-1114 - Change revapi to check against 7.26.0.Final (#1070)
+
+===============================================================================
+Repository: kie-soup
+===============================================================================
+9232273077998b4558b9456931063b7417a1e53d this + is
+e2e2f59e54e5c153b412fa03034fa4fecb1b3308 AF-2145: Fix kie-soup issues from sonar analysis (#110)
+28c944f3cca4a5df5e8a46a6c15b4f63ee1a7765 upgraded to next SNAPSHOT version
+efbcff17a7c1e1c855c096d6a2f1a27801e9273d JBPM-8733  Manage section filter tag shows raw query versus named filter (#99)
+19d2f8caac32b9ca26f3c80aa17d0c3254c1491d upgraded to next SNAPSHOT version
+f1e5abc1def417f5cfa434a83b16a38f1c2c3ba7 DROOLS-4448: Include LocalDate into Package Data Model (#112)
+e5c7114c7b3836c06f700099d5e74f7a90183c51 AF-2145: Add run-code-coverage profile to kie-soup (#111)
+3034cb354ba4d585f08584c797fa18c1e2b00333 AF-2132: Fixing offline build to use correct project (#109)
+b79c8a16ce7d30280a8126459cb35995832b6326 upgraded to next SNAPSHOT version
+42513d64319dfd61781f1cd99df787262debb163 Remove unused code from metadata refactor (#106)
+d5fc268496d0611c7b2844740ef07ee8f3e2f6b0 bumped up version to 7.25.0-SNAPSHOT
+
+Total time: 0s
+
+
+
